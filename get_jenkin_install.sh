@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # install Docker
+echo ‘Docker Installing .....’
 
 sudo apt update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -21,7 +22,12 @@ systemctl enable docker
 
 systemctl start docker
 
+echo ‘Docker Installed’
+
+
 # run jenkin
+echo ‘Jenkins Installing ....’
+
 
 mkdir -p /var/jenkins_home
 
@@ -29,5 +35,6 @@ chown -R 1000:1000 /var/jenkins_home/
 
 docker run -p 8080:8080 -p 50000:50000 -v /var/jenkins_home:/var/jenkins_home -d --name jenkins jenkins
 
+echo ‘Jenkins Installed’
 
 
